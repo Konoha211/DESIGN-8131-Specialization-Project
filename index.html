@@ -1,69 +1,321 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cornell Tech Design Tech Project</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project — Chaotic Color Blocks</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="left">Cornell Tech</div>
-    <div class="center">
-      Design Tech<br>
-      <span>Project Archive</span>
+
+  <div class="frame">
+    <!-- LEFT: expanded area -->
+    <main class="left">
+      <div class="page-content">
+
+        <!-- ===== ONTOGRAPHY (band: grey1) ===== -->
+<!-- ===== ONTOGRAPHY (split: left text, right canvas) ===== -->
+<h1 class="title txt-left">
+  <span class="chip chip--blue">Design Tech</span>
+  <span class="chip chip--black">&nbsp;Specialization</span>
+  <span class="chip chip--red">&nbsp;:&nbsp;</span><br>
+  <span class="chip chip--white">&nbsp;Ontography Diagram</span>
+</h1>
+
+<section class="onto-split">
+  <!-- LEFT: your content -->
+  <div class="onto-left">
+    <bodycopy class="flow chaotic txt-left">
+      <p>
+        <span class="red">Human Identity</span><span class="black">,</span>
+        <span class="blue">Subjectivity</span><span class="black">,</span>
+        <span class="white">Self / Self-Sense</span><span class="black">,</span>
+        <span class="grey1">Body / Embodiment</span><span class="black">,</span>
+        <span class="red">Personhood</span><span class="black">,</span>
+        <span class="blue">Visibility / Invisibility</span><span class="black">,</span>
+        <span class="white">Fragmentation</span><span class="black">,</span>
+        <span class="greygreen">Ownership</span><span class="black">,</span>
+        <span class="red">Otherness</span><span class="black">,</span>
+        <span class="blue">Authenticity</span><span class="black">,</span>
+        <span class="white">Dataset</span><span class="black">,</span>
+        <span class="grey1">Label / Annotation</span><span class="black">,</span>
+        <span class="red">Token</span><span class="black">,</span>
+        <span class="blue">Category</span><span class="black">,</span>
+        <span class="white">Class</span><span class="black">,</span>
+        <span class="greygreen">Feature</span><span class="black">,</span>
+        <span class="red">Attribute</span><span class="black">,</span>
+        <span class="blue">Bird’s-eye Label</span><span class="black">,</span>
+        <span class="white">Visual Fragment</span><span class="black">,</span>
+        <span class="grey1">Statistical Category</span><span class="black">,</span>
+        <span class="red">Machine-Readable</span><span class="black">,</span>
+        <span class="blue">Metadata</span><span class="black">,</span>
+        <span class="white">Bias</span><span class="black">,</span>
+        <span class="greygreen">Consent</span><span class="black">,</span>
+        <span class="red">Collection / Data Collection Method</span><span class="black">,</span>
+        <span class="blue">Pattern Recognition</span><span class="black">,</span>
+        <span class="white">Prediction</span><span class="black">,</span>
+        <span class="grey1">Algorithm</span><span class="black">,</span>
+        <span class="red">Deep Learning</span><span class="black">,</span>
+        <span class="blue">Model</span><span class="black">,</span>
+        <span class="white">Training</span><span class="black">,</span>
+        <span class="greygreen">Inference</span><span class="black">,</span>
+        <span class="red">Representation Learning</span><span class="black">,</span>
+        <span class="blue">Generalization</span><span class="black">,</span>
+        <span class="white">Visual Culture</span><span class="black">,</span>
+        <span class="grey1">Interface</span><span class="black">,</span>
+        <span class="red">Perception</span><span class="black">,</span>
+        <span class="blue">Physicalization</span><span class="black">,</span>
+        <span class="white">Material System</span><span class="black">,</span>
+        <span class="greygreen">Sensor</span><span class="black">,</span>
+        <span class="red">Screen</span><span class="black">,</span>
+        <span class="blue">Glitch / Distortion</span><span class="black">,</span>
+        <span class="white">Visibility / Invisibility</span><span class="black">,</span>
+        <span class="grey1">Representation</span><span class="black">,</span>
+        <span class="red">Ethics</span><span class="black">,</span>
+        <span class="blue">Consent</span><span class="black">,</span>
+        <span class="white">Power</span><span class="black">,</span>
+        <span class="greygreen">Surveillance</span><span class="black">,</span>
+        <span class="red">Privacy</span><span class="black">,</span>
+        <span class="blue">Identity Politics</span><span class="black">,</span>
+        <span class="white">Categorization & Exclusion</span><span class="black">,</span>
+        <span class="grey1">Inequality</span><span class="black">,</span>
+        <span class="red">Normativity</span><span class="black">,</span>
+        <span class="blue">Agency</span><span class="black">,</span>
+        <span class="white">Ecosystem</span><span class="black">,</span>
+        <span class="greygreen">Network</span><span class="black">,</span>
+        </div>
+
+  <!-- RIGHT: the canvas (half the section) -->
+  <div class="onto-right">
+    <div class="three-wrap three-wrap--half">
+      <canvas id="ontographyCanvas" aria-label="Three.js placeholder"></canvas>
     </div>
-    <div class="right"><a href="#">About</a></div>
-  </header>
+  </div>
+</section>
+<div class="stripe stripe--green"></div>
 
-  <main>
-    <div class="project-meta">2025</div>
-    <div class="project-title">Design Tech Project</div>
-    <div class="course-info">DESIGN 8131 Specialization Project 1</div>
-    <div class="advisor"><strong>Parsons Orphans: Nora Lan, Rui Liu</strong></div>
-    <div class="advisor">Advisor<br><strong>Design Tech Faculty</strong></div>
 
-    <div class="section-title">Project Question</div>
-    <p>We want to explore how human beings are increasingly abstracted and deconstructed into compressible data structures within large-scale machine learning systems. In today’s digital landscape, our bodies and identities are no longer seen as whole, subjective beings. Instead, they are reduced by the internet and AI into visual fragments, labeled tokens, and statistical categories. For example, a face in a dataset is no longer tied to its owner. It becomes “Asian / female / smiling / tilted gaze,” a depersonalized unit optimized for pattern recognition and prediction.
+        <!-- ===== PROJECT QUESTION ===== -->
+        <h2 class="subtitle txt-right">
+          <span class="chip chip--yellow">Project Question</span>
+        </h2>
 
-      <br><br>This line of thinking raises the following questions:<br><br>
-      
-      What happens to our sense of self when human subjectivity is converted into machine-readable fragments?<br><br>
-      
-      How does annotation and labeling shape what is visible—and what becomes invisible or lost?<br><br>
-      
-      Can we design an experiential interface that reveals this transformation, not to critique it directly, but to expose what usually remains hidden?<br><br>
-      </p>
+        <bodycopy class="flow chaotic txt-left">
+          <p class="txt-left">
+            <span class="blue">We want to explore</span>
+            <span class="black"> how human beings are increasingly</span>
+            <span class="white">abstracted</span>
+            <span class="red"> and deconstructed</span>
+            <span class="grey1"> into compressible data structures</span>
+            <span class="black"> within large-scale machine learning systems.</span>
+            <span class="white">In today’s digital landscape,</span>
+            <span class="black"> our</span>
+            <span class="white"> bodies</span><span class="black"> and</span>
+            <span class="white"> identities</span>
+            <span class="black"> are no longer seen as whole, subjective beings.</span>
+            <span class="blue">Instead, they are reduced</span>
+            <span class="black"> by the internet and AI</span>
+            <span class="white"> into visual fragments</span><span class="black">,</span>
+            <span class="white"> labeled tokens</span><span class="black">,</span>
+            <span class="white"> statistical categories</span><span class="black">.</span>
+            <span class="blue">For example, a face in a dataset</span>
+            <span class="black"> is no longer tied to its owner — it becomes</span>
+            <span class="white">Asian</span><span class="black"> / </span>
+            <span class="white">female</span><span class="black"> / </span>
+            <span class="white">smiling</span><span class="black"> / </span>
+            <span class="white">tilted gaze</span>
+            <span class="black"> — a depersonalized unit optimized for pattern recognition and prediction.</span>
+          </p>
 
-    <img src="wk2_image/moodboard1.png" alt="Project Screenshot" class="content-image">
+          <p class="txt-right">
+            <span class="blue">This line of thinking raises the following questions:</span>
+          </p>
 
-    <div class="section-title">State of Knowledge of the Field</div>
-    <p>We aim to develop our practice at the intersection of generative AI, visual culture,
-      and interactive design, with a particular focus on the physicalization of machine perception. This
-      includes exploring how abstract AI processes can be made tangible through material systems
-      such as circuits, sensors, and screen-based interfaces, and how identity, data, and embodiment
-      can be reimagined through these hybrid forms.
-      </p>
-    
-      <img src="wk2_image/moodboard2.png" alt="Project Screenshot" class="content-image">
-  
-    <div class="section-title">Map of Community of Practice</div>
-    <img src="wk2_image/Map_of_Community_of_Practice.png" alt="Project Screenshot" class="content-image">
+          <ul class="txt-left">
+              <span class="red">What happens to our sense of self</span>
+              <span class="black"> when human subjectivity is converted into</span>
+              <span class="white">machine-readable fragments</span><span class="black">?</span><br>
+              <span class="black">How does</span>
+              <span class="white"> annotation</span><span class="black"> and</span>
+              <span class="white"> labeling</span>
+              <span class="black"> <br>shape what is visible — and what becomes</span>
+              <span class="grey1">invisible</span>
+              <span class="black"> or lost?</span><br>
+              <span class="black"><br>Can we design an</span>
+              <span class="greygreen"> experiential interface</span>
+              <span class="black"> that reveals this transformation and exposes what usually remains</span>
+              <span class="white">hidden</span><span class="black">?</span>
+          </ul>
+        </bodycopy>
 
-    <div class="section-title">Research Methods</div>
-    <p> a.Textual & Media Analysis</p>
-    <p> Build a theoretical foundation around surveillance, datasets, and AI ethics by reading of key texts like Atlas of AI, Data Feminism (D’Ignazio & Klein)... Then visual analysis of datasets like ImageNet, MS-Celeb-1M ...to examine how human subjects are categorized and abstracted.</p>
-    <p> b. Dataset Ethnography</p>
-    <p> Trace the origins of an open-source dataset, examining collection methods, consent processes, and labeling guidelines. To get the first-hand insights into how human identity is deconstructed at the point of data creation.</p>
+        <div class="stripe stripe--green"></div>
 
-    <div class="section-title">Technology Ecosystem Diagram</div>
-    <img src="wk2_image/Technology_Ecosystem_Diagram.png" alt="Project Screenshot" class="content-image">
+        <!-- ===== FORKING PATHS ===== -->
+        <section class="section band band--blue">
+          <h2 class="subtitle txt-left">
+            <span class="chip chip--red">Forking Paths</span>
+            <span class="chip chip--white">&nbsp;– possible project diagram</span>
+          </h2>
 
-    <div class="section-title">Intent of purpose to ‘Radical Prototype’</div>
-    <p>After reading the magazines. In our view, a radical prototype is an open, participatory experiment in media. It is not just a single tool or device, but a living media ecosystem designed to center people and their interactions. Much like the Image Theater described in Radical Software (Volume 2, Issue 5), it functions as both a spatial and social experiment, where audiences are no longer passive spectators. Instead, the environment is deliberately designed to encourage dialogue and connection.  For example, through seating arrangements that foster conversation and collective experience.
+          <bodycopy class="flow chaotic txt-right">
+            <span class="white"> CRT stacks</span><span class="black">,</span>
+            <span class="white"> circuit reliquaries</span><span class="black">,</span>
+            <span class="white"> labeled faces</span><span class="black">,</span>
+            <span class="white"> medical imaging</span><span class="black">,</span>
+            <span class="white"> glitch strata</span>
+            <br/><br/>
+        
+            <span class="blue">The map on the right</span>
+            <span class="black"> forks into</span>
+            <span class="white"> Software</span>
+            <span class="black"> and</span>
+            <span class="white"> Hardware</span>
+            <span class="black"> trunks:</span>
+            <span class="greygreen"> TouchDesigner</span><span class="black">,</span>
+            <span class="greygreen"> facial-landmark detection</span><span class="black">,</span>
+            <span class="greygreen"> style transformation</span>
+            <span class="black"> route signals into</span>
+            <span class="white"> Raspberry Pi</span>
+            <span class="black"> with</span>
+            <span class="white"> LED matrices</span><span class="black"> / </span>
+            <span class="white">old television screens</span><span class="black">,</span>
+            <span class="white"> speakers</span><span class="black">,</span>
+            <span class="white"> cameras</span><span class="black">,</span>
+            <span class="white"> IR sensors</span>
+            <span class="black"> and a</span>
+            <span class="white"> circuit assemblage.</span>
+            <br/><br/>
+        
+            <span class="blue">Pipeline:</span>
+            <span class="black"> sensor data →</span>
+            <span class="white"> feature extraction →</span>
+            <span class="black"> generative AI →</span>
+            <span class="white"> physical output,</span>
+            <span class="black"> culminating in a</span>
+            <span class="white"> video wall</span>
+            <span class="black"> and a</span>
+            <span class="white"> circuits-based sculpture.</span>
+            <span class="grey1"> This diagram is the navigation key for future prototypes.</span>
+          </bodycopy>
 
-      <br><br>Beyond the audience space, that entire facility is organized as an integrated system for production, coordination, and distribution. This includes a control room for live mixing and special effects, as well as areas for editing, storage, and program sharing. In this way, the radical prototype creates a publicly accessible network of creation and feedback, challenging the top-down structures of media production.
-      </p>
-  </main>
+          <!-- Image grid (~1/3 page, lightbox-enabled placeholders) -->
+          <div style="text-align:right">
+            <div class="media-grid">
+              <a href="#" class="zoomable" aria-label="Moodboard" data-src="moodboard.png"> 
+                <img class="ph ph--tall" alt="Moodboard" src="moodboard.png"/>
+                <div class="caption caption--invert">Moodboard</div>
+              </a>
+              <a href="vision.png" class="zoomable" aria-label="Open diagram 1" data-src="vision.png">
+                <img class="ph" alt="placeholder 1" src="vision.png" />
+                <div class="caption caption--invert">Forking Path</div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <div class="stripe stripe--green"></div>
+
+        <!-- ===== REFLECTIONS ===== -->
+        <section class="section band band--grey1">
+          <h2 class="subtitle txt-center">
+            <span class="chip chip--green">Reflections on barriers to entry</span>
+          </h2>
+
+          <bodycopy class="flow chaotic">
+            <p class="txt-left">
+              <span class="black"><b>1. Technical Barriers</b></span><br/>
+              <span class="white">As an installation,</span>
+              <span class="black"> the project requires a large physical setup</span>
+              <span class="white"> with circuits</span><span class="black">,</span>
+              <span class="white"> cameras</span><span class="black">,</span>
+              <span class="white">sensors</span><span class="black">,</span>
+              <span class="white"> displays</span><span class="black">.</span>
+              <span class="blue"> The challenge lies in balancing aesthetics with engineering:</span>
+              <span class="black"> <br>how to maintain a visually coherent and engaging form while ensuring</span>
+              <span class="grey1">all circuits are reliably connected</span>
+              <span class="black"> and each component functions properly.</span>
+            </p>
+
+            <p class="txt-left">
+              <span class="black"><b>2. Data Barriers</b></span><br/>
+              <span class="black">The project depends on extracting data directly from participants</span>
+              <span class="white"> (images</span><span class="black">,</span>
+              <span class="white"> speech</span><span class="black">,</span>
+              <span class="white"> gestures)</span><span class="black">.</span>
+              <span class="blue"> This raises the question of user willingness:</span>
+              <span class="black"> will audiences consent to having their identity</span>
+              <span class="white">abstracted</span><span class="black">,</span>
+              <span class="white"> tokenized</span><span class="black">, or</span>
+              <span class="white"> classified</span><span class="black">?</span>
+              <span class="grey1"> Without voluntary participation, the interactive dimension of the work cannot unfold.</span>
+            </p>
+
+            <p class="txt-left">
+              <span class="black"><b>3. Conceptual Barriers</b></span><br/>
+              <span class="blue">Communicating the main ideas and processes of the project is itself a challenge.</span>
+              <span class="black"> Many visitors may not be familiar with</span>
+              <span class="white"> AI algorithms</span><span class="black"> or the artistic strategies of</span>
+              <span class="white">abstraction</span><span class="black"> and</span>
+              <span class="white"> physicalization</span><span class="black">.</span>
+              <span class="greygreen"> We must design explanatory layers — visual, textual, or experiential —</span>
+              <span class="black"> that make the project accessible without oversimplifying its critical intentions. <br><br></span>
+            </p>
+          </bodycopy>
+        </section>
+
+        <div class="stripe stripe--green"></div>
+
+        <!-- ===== MAP & DIAGRAMS (single image fill, still respects 2/3–1/3 split) ===== -->
+        <section class="section band band--black">
+          <h2 class="subtitle txt-left">
+            <span class="chip chip--blue">Map and diagrams</span><br>
+            <span class="chip chip--black">of the computational challenges of the project<br></span>
+          </h2>
+
+          <figure class="media-single">
+            <a href="#" class="zoomable" aria-label="Open image 5" data-src="map.jpg">
+              <img class="ph ph--wide" alt="placeholder 5" src="map.jpg"/>
+              <div class="caption caption--invert">Diagram</div>
+            </a>
+          </figure>
+        </section>
+
+        <div class="stripe stripe--blue"></div>
+
+      </div>
+    </main>
+
+    <!-- RIGHT: persistent pure white strip with editable text -->
+    <aside class="right">
+      <div class="sidebar-content">
+        <h2 class="bodycopy chaotic">
+          <a href="Web1/week2.html" class="green">Week 2</span><span class="black"> / </span> </a>
+          <br><br>
+          <span class="blue">Week 4</span><span class="black"> / </span>
+        </h2>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+    <img id="lightboxImg" alt="fullscreen view" />
+  </div>
+
+  <!-- Bigger, stronger blinking pop-up ad -->
+  <div class="popup-ad" aria-live="polite" aria-label="promotional message">
+    <div class="popup-ad__inner">parsons orphans</div>
+  </div>
+
+  <!-- three.js + script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initOntography('#ontographyCanvas');
+    });
+  </script>
 </body>
 </html>

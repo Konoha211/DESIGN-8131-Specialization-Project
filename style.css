@@ -1,120 +1,284 @@
-/* Using Helvetica Neue - widely available on most systems */
-/* Alternative: You can also use "Neue Haas Grotesk" if you have it installed */
+/* ===== Variables (reference palette) ===== */
+:root{
+  --page-grey: #bfbfbf;
 
-body {
-  font-family: "Helvetica Neue", "Helvetica", sans-serif;
-  background-color: #000000;
-  color: #ffffff;
-  margin: 0;
+  --blue-bg: #1900ff;
+  --blue-fg: rgba(254,255,0,0.85);
+  --red-bg: #ff0000;
+  --green-bg: #26ff00;
+  --black-bg: #000000;
+  --white-bg: #ffffff;
+  --grey1-bg: #bfbfbf;
+  --whiteblue-border: #000dff;
+  --yellow-bg: #f5ff00;
+
+  --ink-85: rgba(0,0,0,0.85);
+  --ink-60: rgba(0,0,0,0.6);
+  --paper-85: rgba(255,255,255,0.85);
+
+  --gutter: 3rem;
+
+  /* Reference sizing */
+  --fs-body: 2rem;
+  --fs-h1: 4.5rem;
+  --fs-h2: 3.8rem;
+  --fs-h3: 2.0rem;
+}
+
+/* Base */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ font-size:62.5%; }
+body{
+  margin:0;
+  background: var(--page-grey);
+  color: var(--ink-85);
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  line-height:1.2;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+a{ color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+a:active{ opacity:.7; }
+
+/* Layout: left 2/3, right 1/3 — right always reserved */
+.frame{
+  min-height:100svh;
+  display:grid;
+  grid-template-columns: minmax(0, 4.2fr) minmax(280px, 1fr);
+}
+.left{ padding: 0; background: var(--page-grey); min-height: 100vh; overflow-x:hidden; }
+.right{ background:#fff; min-height: 100vh; }
+
+/* Right text wrapper */
+.sidebar-content{
+  padding: 18px;
+  line-height: 1.3;
+}
+@media (min-width: 960px){
+  .sidebar-content{ position: sticky; top: 0; }
+}
+
+/* Page content */
+.page-content{
   padding: 0;
-}
-
-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 auto;
-  padding: 24px 40px;
-  border-bottom: 1px solid #333;
-  font-size: 14px;
-}
-
-header .left {
-  color: #888;
-  width: 100px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-header .center {
-  font-weight: 400;
+  background: transparent;
+  border: 0;
   text-align: left;
-  margin-left: 100px;
-  flex-grow: 1;
-  color: #ffffff;
 }
 
-header .center span {
-  font-size: 12px;
-  color: #aaa;
-}
-
-header .right {
-  width: 100px;
-  text-align: right;
-}
-
-header .right a {
-  color: #ffffff;
-  text-decoration: none;
+/* Typography */
+.title{
+  margin:0 0 1rem 0;
+  font-size: var(--fs-h1);
   font-weight: 400;
+  letter-spacing:-0.02em;
+  line-height:1;
+}
+.subtitle{
+  margin:0 0 .6rem 0;
+  font-size: var(--fs-h2);
+  font-weight: 440;
+  line-height:1.1;
+}
+.kicker{ font-size: var(--fs-h3); margin: 1.2em 0 .4em; font-weight: 600; }
+
+.flow{ font-size: var(--fs-body); }
+bodycopy{ display:block; font-size: var(--fs-body); color: var(--paper-85); line-height:1.2; }
+bodycopy a{ color: inherit; }
+
+/* Alignment helpers */
+.txt-left{ text-align:left; }
+.txt-right{ text-align:right; }
+.txt-center{ text-align:center; }
+
+/* Inline chips for headings */
+.chip{ display:inline-block; padding:0 .12em; }
+.chip--blue{ background:var(--blue-bg); color:var(--blue-fg); }
+.chip--red{ background:var(--red-bg); color:var(--paper-85); }
+.chip--green{ background:var(--green-bg); color:var(--ink-85); }
+.chip--black{ background:var(--black-bg); color:var(--paper-85); }
+.chip--white{ background:var(--white-bg); color:var(--ink-85); }
+.chip--grey1{ background:var(--grey1-bg); color:var(--ink-85); }
+.chip--yellow{ background:var(--yellow-bg); color:var(--ink-85); }
+
+/* Bands (no white sections) */
+.section{ padding: 0; }
+.band--grey1{ background: var(--grey1-bg); color: var(--ink-85); }
+.band--black{ background: #000; color: var(--paper-85); }
+.band--blue{ background: var(--blue-bg); color: var(--blue-fg); }
+
+/* Chaotic bodycopy blocks (mirroring reference spans) */
+.chaotic span.red{ background: var(--red-bg); color: var(--paper-85); padding:0 .1em; display:inline-block; }
+.chaotic span.blue{ background: var(--blue-bg); color: var(--blue-fg); padding:0 .1em; display:inline-block; }
+.chaotic span.green{ background: var(--green-bg); color: var(--ink-85); padding:0 .1em; display:inline-block; }
+.chaotic span.black{ background: var(--black-bg); color: var(--paper-85); padding:0 .1em; display:inline-block; }
+.chaotic span.white{ background: var(--white-bg); color: var(--ink-85); padding:0 .1em; display:inline-block; }
+.chaotic span.grey1{ background: var(--grey1-bg); color: var(--ink-85); padding:0 .1em; display:inline-block; }
+.chaotic span.greygreen{ background:#8ed8b0; color: var(--ink-85); padding:0 .1em; display:inline-block; }
+.chaotic a.white-blue{
+  background:#fff; color: var(--ink-85);
+  border: .4rem solid var(--whiteblue-border);
+  text-decoration: none; padding:0 .2em; display:inline-block;
 }
 
-header .right a:hover {
-  color: #ccc;
+/* Stripes before/after sections */
+.stripe{ height: 20px; margin: 1.2rem 0; }
+.stripe--blue{ background: var(--blue-bg); }
+.stripe--red{ background: var(--red-bg); }
+.stripe--green{ background: var(--green-bg); }
+.stripe--yellow{ background: var(--yellow-bg); }
+
+/* Three.js area */
+.three-wrap{
+  margin-top: 1rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 0;
+  overflow: hidden;
+}
+#ontographyCanvas{ display:block; width:100%; height: min(54vh, 520px); }
+
+/* ===== Ontography split layout ===== */
+.onto-split{
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* left text / right canvas, equal halves */
+  gap: var(--gutter);
+  align-items: start;
+}
+.onto-split .title {
+  font-family: 'Libre Barcode 39 Text';
+  font-size: 4.5rem;
+  letter-spacing: 0.05em;
 }
 
-main {
-  max-width: 800px;
-  margin: 60px 0;
-  padding: 0 40px;
-  margin-left: auto;
-  margin-right: auto;
+.onto-left{
+  min-width: 0; /* prevent overflow */
 }
 
-.project-meta {
-  font-size: 14px;
-  color: #aaa;
-  margin-bottom: 8px;
+.onto-right{
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end; /* push canvas group to the right edge */
 }
 
-.project-title {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 4px;
-  color: #ffffff;
-}
-
-.course-info {
-  font-size: 14px;
-  color: #aaa;
-  margin-bottom: 8px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-}
-
-.project-subtitle {
-  font-size: 16px;
-  color: #aaa;
-  margin-bottom: 24px;
-}
-
-.advisor {
-  font-size: 14px;
-  margin-bottom: 40px;
-  color: #ccc;
-}
-
-.section-title {
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 40px;
-  margin-bottom: 12px;
-  font-size: 14px;
-  color: #ffffff;
-}
-
-p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 24px;
-  color: #ffffff;
-}
-
-img.content-image {
+/* Half-width canvas container */
+.three-wrap--half{
   width: 100%;
-  height: auto;
-  margin: 40px 0;
+  max-width: 680px;               /* keeps it around half the section on large screens */
+}
+
+/* Adjust canvas height a touch for this split */
+.three-wrap--half #ontographyCanvas{
+  width: 100%;
+  height: min(48vh, 460px);
   display: block;
-  border-radius: 4px;
+}
+
+/* Stack on small screens */
+@media (max-width: 900px){
+  .onto-split{
+    grid-template-columns: 1fr;   /* stack */
+    gap: calc(var(--gutter) * 0.66);
+  }
+  .onto-right{ justify-content: flex-start; }
+  .three-wrap--half{ max-width: none; }
+}
+
+
+/* Captions */
+.caption{ font-size: 1.4rem; color: var(--ink-60); padding: .8rem .9rem; }
+.caption--invert{ color: rgba(255,255,255,0.85); }
+
+/* Media grid (~1/3 page) */
+.media-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1.4vw, 16px);
+  align-items:start;
+}
+.media-grid--varied{ grid-template-columns: repeat(3, 1fr); }
+.media-grid a{ text-decoration:none; }
+img.ph{
+  width:100%; height:auto;
+  aspect-ratio:4/3;
+  background:#fff; /* plain white */
+  display:block;
+  border:1px solid rgba(0,0,0,0.12);
+}
+img.ph.ph--tall{ aspect-ratio:3/4; }
+img.ph.ph--wide{ aspect-ratio:16/9; }
+
+/* NEW: single-image section that fills left cleanly */
+.media-single{ width:100%; margin: 0; }
+.media-single img{ width:100%; height:auto; display:block; }
+
+/* Avoid left content pushing into right */
+.left img,
+.left canvas,
+.left video{ max-width:100%; height:auto; display:block; }
+
+/* Lightbox */
+.lightbox{
+  position:fixed; inset:0;
+  background: rgba(0,0,0,.9);
+  display:none; align-items:center; justify-content:center;
+  z-index:9999;
+}
+.lightbox.open{ display:flex; }
+.lightbox img{ max-width:92vw; max-height:92vh; background:#fff; }
+.lightbox__close{
+  position:absolute; top:14px; right:16px;
+  font-size:3.2rem; line-height:1;
+  background: rgba(255,255,255,0.15);
+  color:#fff; border:none; border-radius:50%;
+  width:44px; height:44px; cursor:pointer;
+}
+
+/* Bigger, stronger blinking pop-up ad (fade out then reappear) */
+@keyframes blinkFade {
+  0%   { opacity: 1; transform: translateY(0); }
+  45%  { opacity: 0; transform: translateY(2px); }
+  55%  { opacity: 0; transform: translateY(2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.popup-ad{
+  position: fixed;
+  right: 6px;
+  bottom: 2px;
+  z-index: 10000;
+  background: var(--red-bg);
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+  border-radius: 0px;
+  overflow: hidden;
+  animation: blinkFade 1.25s ease-in-out infinite;
+}
+.popup-ad__inner{
+  padding: 18px 22px;
+  min-width: 280px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Diatype Variable", -apple-system,BlinkMacSystemFont,"Inter",sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: #fff;
+  text-transform: lowercase;
+}
+
+/* Lists */
+ul{ margin:.6em 0; padding:0 0 0 2em; }
+li{ margin:.15em 0; }
+
+/* Responsive */
+@media (max-width: 1080px){
+  .frame{ grid-template-columns: 1fr; }
+  .right{ min-height: 18svh; }
+  .page-content{ padding: calc(var(--gutter) * .66); }
+  .media-grid, .media-grid--varied{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .media-grid, .media-grid--varied{ grid-template-columns: 1fr; }
+  .popup-ad__inner{ min-width: 220px; min-height: 72px; font-size: 2.2rem; }
 }
