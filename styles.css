@@ -376,3 +376,39 @@ li{ margin:.15em 0; }
 .media-grid--varied a:nth-child(2) img { aspect-ratio: 3 / 4; }
 .media-grid--varied a:nth-child(3) img { aspect-ratio: 1 / 1; }
 
+
+/* ===== UML diagram full-width display ===== */
+.uml-large {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.uml-large a {
+  display: block;
+  width: 100%;
+  max-width: 96%;
+  text-decoration: none;
+}
+
+.uml-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+}
+
+/* Keep it responsive */
+@media (max-width: 1080px) {
+  .uml-img {
+    max-width: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+

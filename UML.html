@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>UML — Diagrams & System Notes</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <div class="frame">
+    <!-- LEFT: content only (RIGHT stays the same styling/menu strip) -->
+    <main class="left">
+      <div class="page-content">
+
+<!-- ===== 1) UML Diagram A ===== -->
+<section class="section band band--blue" id="uml-a">
+  <h2 class="subtitle txt-left">
+    <span class="chip chip--red">UML</span>
+    <span class="chip chip--white">&nbsp;Diagram A</span>
+  </h2>
+
+  <div class="uml-large">
+    <a href="#" class="zoomable" data-src="UML_image/UML1.png" aria-label="Open UML A">
+      <img class="uml-img" alt="UML Diagram A" src="UML_image/UML1.png"/>
+    </a>
+  </div>
+</section>
+<div class="stripe stripe--green"></div>
+
+<!-- ===== 2) UML Diagram B ===== -->
+<section class="section band band--grey1" id="uml-b">
+  <h2 class="subtitle txt-left">
+    <span class="chip chip--blue">UML</span>
+    <span class="chip chip--black">&nbsp;Diagram B</span>
+  </h2>
+
+  <div class="uml-large">
+    <a href="#" class="zoomable" data-src="UML_image/UML2.png" aria-label="Open UML B">
+      <img class="uml-img" alt="UML Diagram B" src="UML_image/UML2.png"/>
+    </a>
+  </div>
+</section>
+<div class="stripe stripe--yellow"></div>
+
+
+        <!-- ===== 3) Variables (chaotic) ===== -->
+        <section class="section band band--black" id="variables">
+          <h2 class="subtitle txt-right">
+            <span class="chip chip--yellow">Variables</span>
+          </h2>
+
+          <bodycopy class="flow chaotic txt-left">
+            <!-- Vision -->
+            <div class="kicker"><span class="chip chip--blue">Vision</span></div>
+            <p>
+              <span class="white">resolution</span><span class="black"> (e.g.,</span>
+              <span class="red">1920×1080</span><span class="black">),</span>
+              <span class="white">fps</span><span class="black"> (</span><span class="blue">30–60</span><span class="black">),</span>
+              <span class="white">latencyMs</span><span class="black"> (target &lt;</span><span class="red">120</span><span class="black">),</span>
+              <span class="white">confidenceThr</span><span class="black"> (</span><span class="blue">0–1</span><span class="black">),</span>
+              <span class="white">calibMatrix</span><span class="black"> (camera → world mapping).</span>
+            </p>
+
+            <!-- Audio -->
+            <div class="kicker"><span class="chip chip--green">Audio</span></div>
+            <p>
+              <span class="white">sampleRate</span><span class="black"> (</span><span class="blue">44.1/48kHz</span><span class="black">),</span>
+              <span class="white">windowSize</span><span class="black"> (e.g., </span><span class="red">1024</span><span class="black">),</span>
+              <span class="white">bpm</span><span class="black">,</span>
+              <span class="white">onset</span><span class="black"> (bool per frame),</span>
+              <span class="white">spectrum[]</span><span class="black"> (FFT bins).</span>
+            </p>
+
+            <!-- Interaction & Scene -->
+            <div class="kicker"><span class="chip chip--white">Interaction &amp; Scene</span></div>
+            <p>
+              <span class="white">activeScene</span><span class="black"> (</span><span class="blue">Idle/Attract/Engage</span><span class="black">),</span>
+              <span class="white">engagementScore</span><span class="black"> (</span><span class="blue">0–1 EMA</span><span class="black">),</span>
+              <span class="white">crowdSize</span><span class="black"> (count),</span>
+              <span class="white">control inputs</span><span class="black"> (button, slider </span><span class="blue">0–1</span><span class="black">).</span>
+            </p>
+
+            <!-- Effects & Output -->
+            <div class="kicker"><span class="chip chip--red">Effects &amp; Output</span></div>
+            <p>
+              <span class="white">params{}</span><span class="black"> (effect intensities </span><span class="blue">0–1</span><span class="black">),</span>
+              <span class="white">mappingProfile</span><span class="black"> (projector/LED map JSON),</span>
+              <span class="white">vSync</span><span class="black"> (on/off),</span>
+              <span class="white">gainDb</span><span class="black"> (audio level),</span>
+              <span class="white">fixtureCount</span><span class="black">.</span>
+            </p>
+
+            <!-- Data & Consent -->
+            <div class="kicker"><span class="chip chip--grey1">Data &amp; Consent</span></div>
+            <p>
+              <span class="white">consentStatus</span><span class="black"> (</span><span class="blue">Unknown/Granted/Refused</span><span class="black">),</span>
+              <span class="white">enteredAt</span><span class="black"> / </span><span class="white">exitedAt</span><span class="black">,</span>
+              <span class="white">retentionDays</span><span class="black">.</span>
+            </p>
+
+            <p class="txt-right">
+              <span class="blue">Why it matters:</span>
+              <span class="black"> these variables define</span>
+              <span class="white">responsiveness</span><span class="black">,</span>
+              <span class="white">safety</span><span class="black"> (brightness/sound caps), and</span>
+              <span class="white">privacy behavior</span><span class="black"> at runtime.</span>
+            </p>
+          </bodycopy>
+        </section>
+        <div class="stripe stripe--green"></div>
+
+        <!-- ===== 4) Functions (chaotic) ===== -->
+        <section class="section band band--blue" id="functions">
+          <h2 class="subtitle txt-left">
+            <span class="chip chip--white">Functions</span>
+          </h2>
+
+          <bodycopy class="flow chaotic">
+            <!-- Sensing & Analysis -->
+            <div class="kicker"><span class="chip chip--yellow">Sensing &amp; Analysis</span></div>
+            <p>
+              <span class="white">captureFrame()</span><span class="black">,</span>
+              <span class="white">captureAudio()</span><span class="black">;</span>
+              <span class="white">detectFaces(frame)</span><span class="black"> → Face[],</span>
+              <span class="white">estimatePose(frame)</span><span class="black"> → Pose,</span>
+              <span class="white">track(objs)</span><span class="black"> → Tracks;</span>
+              <span class="white">analyze(buffer)</span><span class="black"> → AudioFeatures,</span>
+              <span class="white">getBeat()</span><span class="black"> → bool.</span>
+            </p>
+
+            <!-- Privacy & Control -->
+            <div class="kicker"><span class="chip chip--green">Privacy &amp; Control</span></div>
+            <p>
+              <span class="white">checkConsent(session)</span><span class="black"> → bool,</span>
+              <span class="white">applyMask(frame, faces)</span><span class="black"> → Frame (blur/pixelate);</span>
+              <span class="white">setScene(name)</span><span class="black">,</span>
+              <span class="white">applyCue(cue)</span><span class="black">.</span>
+            </p>
+
+            <!-- Rendering & Routing -->
+            <div class="kicker"><span class="chip chip--red">Rendering &amp; Routing</span></div>
+            <p>
+              <span class="white">apply(features)</span><span class="black"> → Frame (EffectEngine);</span>
+              <span class="white">loadAssets(assets[])</span><span class="black">,</span>
+              <span class="white">toDisplay(frame, surface)</span><span class="black">,</span>
+              <span class="white">toLighting(cues[])</span><span class="black">,</span>
+              <span class="white">toAudio(bus)</span><span class="black">.</span>
+            </p>
+
+            <!-- Ops & Safety -->
+            <div class="kicker"><span class="chip chip--white">Ops &amp; Safety</span></div>
+            <p>
+              <span class="white">heartbeat()</span><span class="black"> → StatusReport,</span>
+              <span class="white">cutPower()</span><span class="black">,</span>
+              <span class="white">fadeToBlack(ms)</span><span class="black">,</span>
+              <span class="white">close()</span><span class="black"> (end session).</span>
+            </p>
+          </bodycopy>
+        </section>
+        <div class="stripe stripe--red"></div>
+
+        <!-- ===== 5) Math challenges ===== -->
+        <section class="section band band--grey1" id="math">
+          <h2 class="subtitle txt-left">
+            <span class="chip chip--black">Math challenges</span>
+          </h2>
+
+          <bodycopy class="flow chaotic txt-left">
+            <p>
+              <span class="blue">Camera → screen mapping (projective geometry):</span>
+              <span class="black"> We compute homographies/</span><span class="white">calibMatrix</span>
+              <span class="black"> so visuals align with real surfaces (keystone correction, multi-projector blends).</span>
+            </p>
+            <p>
+              <span class="blue">Face/pose detection thresholds (ROC trade-off):</span>
+              <span class="black"> Tuning </span><span class="white">confidenceThr</span>
+              <span class="black"> balances misses vs false hits; we target stable tracking without flicker.</span>
+            </p>
+            <p>
+              <span class="blue">Latency budgeting:</span>
+              <span class="black"> End-to-end time = capture + CV + analysis + effects + render.</span>
+              <span class="black"> We manage queue sizes and downscale frames to stay &lt;</span><span class="white">120ms</span><span class="black">.</span>
+            </p>
+            <p>
+              <span class="blue">Feature → parameter mapping:</span>
+              <span class="black"> Normalize, clamp, and ease CV/Audio values to avoid jitter.</span>
+            </p>
+            <p>
+              <span class="blue">Crowd estimation / engagement:</span>
+              <span class="black"> Exponential moving averages smooth detections into</span>
+              <span class="white">engagementScore</span><span class="black"> for scene changes.</span>
+            </p>
+          </bodycopy>
+        </section>
+        <div class="stripe stripe--green"></div>
+
+        <!-- ===== 6) Customer / User modeling ===== -->
+        <section class="section band band--blue" id="users">
+          <h2 class="subtitle txt-right">
+            <span class="chip chip--white">Customer / User modeling</span>
+          </h2>
+
+          <bodycopy class="flow chaotic">
+            <div class="kicker"><span class="chip chip--yellow">Visitor (primary)</span></div>
+            <p>
+              <span class="blue">Motivation:</span>
+              <span class="black"> surprise, play, a sense of being</span>
+              <span class="white">“seen”</span><span class="black"> by the system.</span>
+              <span class="blue">Needs:</span>
+              <span class="black"> clear affordances, low friction, privacy awareness.</span>
+              <span class="blue">Accessibility:</span>
+              <span class="black"> brightness/sound limits, high-contrast mode, physical controls.</span>
+            </p>
+
+            <div class="kicker"><span class="chip chip--green">Facilitator/Technician (secondary)</span></div>
+            <p>
+              <span class="blue">Motivation:</span>
+              <span class="black"> reliability, quick recovery, simple presets.</span>
+              <span class="blue">Needs:</span>
+              <span class="black"> start/stop, calibration, emergency kill, live meters.</span>
+            </p>
+
+            <div class="kicker"><span class="chip chip--red">Admin/Curator (secondary/remote)</span></div>
+            <p>
+              <span class="blue">Motivation:</span>
+              <span class="black"> schedule content, update assets/models, view health.</span>
+              <span class="blue">Needs:</span>
+              <span class="black"> asset uploads, model versioning, telemetry.</span>
+            </p>
+
+            <div class="kicker"><span class="chip chip--white">Consent flow (all users)</span></div>
+            <p>
+              <span class="black">Defaults to anonymized visuals; optional QR/kiosk for explicit consent.</span>
+              <span class="black"> Retention policy shown on entry signage.</span>
+            </p>
+          </bodycopy>
+        </section>
+        <div class="stripe stripe--yellow"></div>
+
+        <!-- ===== 7) Relationships between units ===== -->
+        <section class="section band band--black" id="relationships">
+          <h2 class="subtitle txt-left">
+            <span class="chip chip--blue">Relationships between units</span>
+            <span class="chip chip--black">&nbsp;(how pieces fit — summary)</span>
+          </h2>
+
+          <bodycopy class="flow chaotic">
+            <p class="txt-left">
+              <span class="white">Sensors → Processing:</span>
+              <span class="black"> Cameras → ComputerVisionModule;</span>
+              <span class="black"> Microphones → AudioAnalysis;</span>
+              <span class="black"> Control devices → SceneManager.</span>
+            </p>
+            <p class="txt-left">
+              <span class="white">Privacy guards Vision:</span>
+              <span class="black"> Consent/PrivacyController masks faces or enables full features.</span>
+            </p>
+            <p class="txt-left">
+              <span class="white">Processing → Effects:</span>
+              <span class="black"> CV features + audio features + scene state feed EffectEngine.</span>
+            </p>
+            <p class="txt-left">
+              <span class="white">Effects → Outputs:</span>
+              <span class="black"> OutputRouter sends frames to displays, cues to lighting, audio to speakers.</span>
+            </p>
+            <p class="txt-left">
+              <span class="white">Ops layer:</span>
+              <span class="black"> AdminUI controls scenes/effects/outputs; HealthCheck monitors; EmergencyKillSwitch overrides all.</span>
+            </p>
+            <p class="txt-left">
+              <span class="white">Data layer:</span>
+              <span class="black"> VisitorSession ties events and ConsentRecord; Telemetry logs performance and interactions.</span>
+            </p>
+          </bodycopy>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- RIGHT: keep the same menu strip from your midterm (unchanged styles) -->
+    <!-- If your midterm.html has specific markup inside this aside, paste it here 1:1 -->
+    <aside class="right">
+      <!-- Example (safe to replace with the exact menu from midterm.html) -->
+      <nav style="padding:16px">
+        <h2 class="bodycopy chaotic">
+          <a href="Web1/week2.html" class="green">Week 2</span><span class="black"> / </span> </a>
+          <br><br>
+         <a href="index.html" class="blue">Week 4</span><span class="chip--yellow"> / </span> </a>
+         <br><br>
+        <a href="midterm.html" class="red">Midterm</span><span class="greygreen"> / </span> </a>
+          <br><br>
+         <a href="UML.html" class="yellow">UML</span><span class="chip--blue"> / </span> </a>
+          <br><br>
+        </h2>
+    </aside>
+  </div>
+
+  <!-- Reuse the same lightbox markup (compatible with your existing script.js) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+    <img id="lightboxImg" alt="fullscreen view"/>
+  </div>
+
+  <!-- Popup ad from your base site (optional; remove if not needed on this page) -->
+  <div class="popup-ad" aria-live="polite" aria-label="promotional message">
+    <div class="popup-ad__inner">parsons orphans</div>
+  </div>
+
+  <!-- Your site JS (same file you already use; contains zoomable/lightbox behavior) -->
+  <script src="script.js"></script>
+</body>
+</html>
