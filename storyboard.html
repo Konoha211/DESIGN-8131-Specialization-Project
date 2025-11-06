@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Storyboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="frame">
+    <!-- LEFT: Slideshow -->
+    <main class="left">
+      <div class="page-content">
+
+        <!-- ===== STORYBOARD SLIDESHOW ===== -->
+        <section class="section band band--blue">
+          <h1 class="title txt-left">
+            <span class="chip chip--red">Storyboard</span>
+            <span class="chip chip--white">&nbsp;Sequence</span>
+          </h1>
+
+          <div class="slideshow" id="storyboard-slideshow">
+            <button class="ss-nav ss-prev" aria-label="Previous">‹</button>
+
+            <div class="ss-viewport">
+              <img class="ss-slide is-active zoomable"
+                   src="storyboard_img/storyboard 1.png"
+                   data-src="storyboard_img/storyboard 1.png"
+                   alt="Storyboard frame 1" />
+
+              <img class="ss-slide zoomable"
+                   src="storyboard_img/storyboard 2.png"
+                   data-src="storyboard_img/storyboard 2.png"
+                   alt="Storyboard frame 2" />
+
+              <img class="ss-slide zoomable"
+                   src="storyboard_img/storyboard 3.png"
+                   data-src="storyboard_img/storyboard 3.png"
+                   alt="Storyboard frame 3" />
+            </div>
+
+            <button class="ss-nav ss-next" aria-label="Next">›</button>
+          </div>
+          <div class="caption caption--invert">Click arrows or image to view fullscreen.</div>
+        </section>
+      </div>
+    </main>
+
+    <!-- RIGHT: unchanged white strip -->
+    <aside class="right">
+      <div class="sidebar-content">
+        <h2 class="bodycopy chaotic">
+          <a href="Web1/week2.html" class="green">Week 2</a><span class="black"> / </span>
+          <br><br>
+          <a href="index.html" class="blue">Week 4</a><span class="chip--yellow"> / </span>
+          <br><br>
+          <a href="midterm.html" class="red">Midterm</a><span class="greygreen"> / </span>
+          <br><br>
+          <a href="UML.html" class="yellow">UML</a><span class="chip--blue"> / </span>
+        <br><br>
+          <a href="storyboard.html" class="chip--red">Storyboard</a><span class="green"> / </span>
+        </h2>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+    <img id="lightboxImg" alt="fullscreen view" />
+  </div>
+
+  <!-- JS for lightbox + slideshow -->
+  <script>
+    // Lightbox
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const closeBtn = document.getElementById('lightboxClose');
+      document.querySelectorAll('a.zoomable, .zoomable').forEach(el=>{
+        el.addEventListener('click', e=>{
+          e.preventDefault();
+          img.src = el.dataset.src || el.src;
+          lb.classList.add('open');
+          lb.setAttribute('aria-hidden','false');
+        });
+      });
+      function close(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); img.src=''; }
+      closeBtn.addEventListener('click', close);
+      lb.addEventListener('click', e=>{ if(e.target===lb) close(); });
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
+    })();
+
+    // Slideshow
+    (function(){
+      const root = document.getElementById('storyboard-slideshow');
+      if(!root) return;
+      const slides = Array.from(root.querySelectorAll('.ss-slide'));
+      const prev = root.querySelector('.ss-prev');
+      const next = root.querySelector('.ss-next');
+      let i = 0;
+      function show(n){
+        slides.forEach(s=>s.classList.remove('is-active'));
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('is-active');
+      }
+      prev.addEventListener('click',()=>show(i-1));
+      next.addEventListener('click',()=>show(i+1));
+    })();
+  </script>
+
+  <!-- Optional popup ad -->
+  <div class="popup-ad" aria-live="polite" aria-label="promotional message">
+    <div class="popup-ad__inner">parsons orphans</div>
+  </div>
+</body>
+</html>
