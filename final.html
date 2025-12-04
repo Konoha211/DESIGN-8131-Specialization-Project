@@ -309,7 +309,7 @@ BIAS_DETECTED
 
         // 2. Camera
         const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-        camera.position.set(0, 10, 35);
+        camera.position.set(0, 5, 25);
 
         // 3. Renderer
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -351,11 +351,16 @@ BIAS_DETECTED
             const center = box.getCenter(new THREE.Vector3());
 
             object.position.x += (object.position.x - center.x);
-            object.position.y += (object.position.y - center.y);
+            object.position.y += (object.position.y - center.y); // Center vertically
             object.position.z += (object.position.z - center.z);
 
             const maxAxis = Math.max(size.x, size.y, size.z);
-            object.scale.setScalar(15 / maxAxis); 
+            
+            // --- UPDATED SCALE: Increased from 15 to 35 ---
+            object.scale.setScalar(35 / maxAxis); 
+
+            // Optional: Shift down slightly if it feels too high
+            object.position.y -= 2; 
 
             scene.add(object);
 
