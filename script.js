@@ -40,10 +40,10 @@ let _timeAcc = 0;
  */
 function initOntography(target = '#ontographyCanvas') {
   const canvas = (typeof target === 'string') ? document.querySelector(target) : target;
-  if (!canvas) {
-    console.warn('initOntography: canvas not found:', target);
-    return;
-  }
+  
+  // Just return silently if canvas isn't there (avoids error on Final page)
+  if (!canvas) return; 
+
 
   // SCENE
   scene = new THREE.Scene();
