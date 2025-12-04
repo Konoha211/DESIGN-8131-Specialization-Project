@@ -411,4 +411,599 @@ li{ margin:.15em 0; }
   }
 }
 
+/* ======================================================
+   FINAL PROJECT PAGE ADDITIONS
+   (Cyberpunk / Glitch / Dystopian Styling)
+   ====================================================== */
 
+/* 1. Themed Separators */
+.stripe--glitch {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--black-bg),
+    var(--black-bg) 10px,
+    var(--grey1-bg) 10px,
+    var(--grey1-bg) 20px
+  );
+  height: 24px;
+  border-bottom: 2px solid var(--red-bg);
+}
+
+/* 2. Terminal Text Box (Section 1) */
+.terminal-box {
+  background: var(--ink-85);
+  border: 2px solid var(--blue-bg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 4px 4px 0px var(--grey1-bg);
+}
+
+.terminal-header {
+  font-family: "Courier New", Courier, monospace;
+  color: var(--red-bg);
+  font-weight: bold;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #444;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+/* 3. Glitch Image Containers */
+.glitch-img-container {
+  position: relative;
+}
+.glitch-img-container::after {
+  content: "+";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  color: var(--blue-bg);
+  font-weight: bold;
+  font-size: 2rem;
+}
+.glitch-img-container::before {
+  content: "+";
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  color: var(--blue-bg);
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* 4. 3D Viewer & Video Grid (Section 4) */
+.cyber-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gutter);
+  margin: 2rem 0;
+}
+@media (max-width: 768px) {
+  .cyber-grid { grid-template-columns: 1fr; }
+}
+
+.viewer-3d-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  border: 2px solid var(--green-bg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Scanline effect overlay */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(0,0,0,0.2)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.viewer-ui-top, .viewer-ui-bottom {
+  position: absolute;
+  left: 0; right: 0;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: var(--green-bg);
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+  background: rgba(0,0,0,0.6);
+}
+.viewer-ui-top { top: 0; border-bottom: 1px solid var(--green-bg); }
+.viewer-ui-bottom { bottom: 0; border-top: 1px solid var(--green-bg); }
+
+.viewer-placeholder-content {
+  text-align: center;
+  color: #fff;
+  font-family: monospace;
+  z-index: 1;
+}
+
+.blink { animation: blinkAnim 1s infinite; }
+@keyframes blinkAnim {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Video Placeholder */
+.video-embed-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #222;
+  border: 1px solid var(--grey1-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: monospace;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.video-embed-placeholder:hover { background: #333; }
+.play-icon { font-size: 4rem; margin-bottom: 1rem; }
+
+/* 5. Long Graphic (Section 5) */
+.long-graphic-container {
+  width: 100%;
+  border: 1px solid #000;
+  padding: 4px;
+  background: #fff;
+}
+.long-graphic-inner {
+  width: 100%;
+  height: 60vh; /* Arbitrary tall height for placeholder */
+  background: repeating-linear-gradient(
+    0deg,
+    #ddd,
+    #ddd 1px,
+    #fff 1px,
+    #fff 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-family: monospace;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* 6. Warning Popup Variant */
+.warning-popup {
+  background: var(--black-bg) !important;
+  border: 2px solid var(--yellow-bg);
+  bottom: 20px;
+}
+.warning-popup .popup-ad__inner {
+  color: var(--yellow-bg);
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+/* ======================================================
+   FINAL PAGE UPDATES (Visceral / Glitch / Backgrounds)
+   ====================================================== */
+
+/* --- 1. Non-Uniform Backgrounds --- */
+
+/* Utility container to apply backgrounds while keeping padding */
+.section-wrapper {
+  padding: 2rem;
+  margin: 1rem -2rem; /* Bleed out to edge of left column */
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Texture 1: Scanline Grey (Subtle) */
+.bg-scanline {
+  background-color: #dcdcdc;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+/* Texture 2: Dark Grid (Trace) */
+.bg-dark-grid {
+  background-color: #b0b0b0;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Texture 3: Red Alert (Crisis) */
+.bg-red-alert {
+  background-color: #dcdcdc;
+  background: radial-gradient(circle at center, #e0e0e0 0%, #d6a2a2 100%);
+  border-left: 5px solid var(--red-bg);
+}
+
+/* Texture 4: Terminal Green (Prototype) */
+.bg-terminal-green {
+  background-color: #111;
+  color: #0f0; /* Force text green inside unless overridden */
+  border: 1px solid #0f0;
+}
+/* Override chaotic spans inside the dark terminal section for readability */
+.bg-terminal-green .chaotic span.black { background: #0f0; color: #000; }
+.bg-terminal-green .chaotic span.white { background: #222; color: #0f0; border: 1px solid #0f0; }
+
+/* Texture 5: Static Noise (Manifestations) */
+.bg-static {
+  background-color: #e5e5e5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* Texture 6: Void (Errors) */
+.bg-void {
+  background-color: #000;
+  color: #ccc;
+  border: 1px solid var(--red-bg);
+}
+
+/* --- 2. Floating Bouncing GIF (DVD Logic) --- */
+#bouncing-element {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 80px;
+  z-index: 999;
+  pointer-events: none; /* Let clicks pass through */
+  mix-blend-mode: exclusion; /* Cool effect over text */
+  will-change: transform;
+}
+
+
+
+/* --- 3. Glitch Text Effects --- */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+/* Creates the duplicate layers for the glitch */
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--page-grey); /* Match background to hide original briefly */
+}
+
+/* Layer 1: Red shift */
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00c1;
+  clip-path: inset(44% 0 61% 0);
+  animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+/* Layer 2: Blue shift */
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #00fff9;
+  clip-path: inset(50% 0 30% 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+/* Glitch Keyframes */
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); }
+  20% { clip-path: inset(60% 0 10% 0); }
+  40% { clip-path: inset(40% 0 50% 0); }
+  60% { clip-path: inset(80% 0 5% 0); }
+  80% { clip-path: inset(10% 0 70% 0); }
+  100% { clip-path: inset(30% 0 20% 0); }
+}
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); }
+  20% { clip-path: inset(30% 0 10% 0); }
+  40% { clip-path: inset(80% 0 5% 0); }
+  60% { clip-path: inset(15% 0 80% 0); }
+  80% { clip-path: inset(60% 0 30% 0); }
+  100% { clip-path: inset(40% 0 20% 0); }
+}
+
+/* --- 4. ASCII Art Styling --- */
+.ascii-art {
+  font-family: 'VT323', monospace;
+  white-space: pre;
+  overflow: hidden;
+  line-height: 1;
+  color: #333;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+  opacity: 0.8;
+}
+
+.ascii-top {
+  font-size: 1.2rem;
+  color: var(--blue-bg);
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.ascii-divider {
+  color: var(--ink-60);
+  text-align: center;
+}
+
+/* Dark Bizarre Vibe overrides for ASCII */
+.bg-void .ascii-art { color: var(--red-bg); }
+.bg-terminal-green .ascii-art { color: #0f0; }
+
+/* ======================================================
+   TEXT FX: CRT FLICKER & INLINE GLITCH
+   ====================================================== */
+
+/* 1. NEW: The "CRT Flicker" Effect
+   Simulates a dying backlight or bad cable connection.
+   Use class="flicker-text" on spans. */
+.flicker-text {
+  animation: crt-flicker 0.15s infinite;
+  display: inline-block; /* Helps rendering */
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 1; transform: skewX(0deg); }
+  25% { opacity: 0.8; }
+  50% { opacity: 0.95; transform: skewX(1deg); }
+  75% { opacity: 0.5; } /* Sudden dim */
+  80% { opacity: 1; }
+  90% { opacity: 0.2; transform: skewX(-1deg); } /* Hard flicker */
+  100% { opacity: 1; }
+}
+
+/* 2. UPDATED: Inline Glitch Word
+   Adapted from the previous header glitch to work inline.
+   Requires data-text="WORD" in HTML. */
+.glitch-word {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-word::before,
+.glitch-word::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--page-grey); /* Hides the original text briefly */
+  opacity: 0.8;
+}
+
+/* Specific background fixes for colored sections to ensure the glitch mask matches */
+.bg-void .glitch-word::before, .bg-void .glitch-word::after { background: #000; }
+.bg-scanline .glitch-word::before, .bg-scanline .glitch-word::after { background: #dcdcdc; }
+
+.glitch-word::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00c1;
+  clip-path: inset(44% 0 61% 0);
+  animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+}
+
+.glitch-word::after {
+  left: -2px;
+  text-shadow: -1px 0 #00fff9;
+  clip-path: inset(50% 0 30% 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+/* Existing Glitch Keyframes (ensure these are present) */
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); }
+  20% { clip-path: inset(60% 0 10% 0); }
+  100% { clip-path: inset(30% 0 20% 0); }
+}
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); }
+  20% { clip-path: inset(30% 0 10% 0); }
+  100% { clip-path: inset(40% 0 20% 0); }
+}
+
+/* --- Section Five Setup --- */
+.cyber-glitch-section {
+    position: relative;
+    min-height: 100vh; /* Takes up full screen height */
+    background-color: #2b00ff;
+    overflow: hidden; /* Prevents images from spilling out */
+    padding-top: 60px;
+}
+
+/* --- The Scattered Thumbnails --- */
+.glitch-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+}
+
+.glitch-thumb {
+    position: absolute;
+    border: 1px solid #333;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 255, 65, 0.1);
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.glitch-thumb:hover {
+    z-index: 100 !important; /* Bring to front on hover */
+    opacity: 1;
+    border-color: #00ff41; /* Matrix Green */
+    box-shadow: 0 0 15px #00ff41;
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* --- The Lightbox (Overlay) --- */
+.cyber-lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 9, 131, 0.95);
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+    overflow-y: auto; /* Allows scrolling if image is long */
+    animation: fadeIn 0.3s forwards;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 800px; /* Limits width for readability */
+    margin: 40px auto;
+    border: 1px solid #00ff41;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+    background: #000;
+}
+
+.lightbox-header {
+    background: #00ff41;
+    color: #000;
+    padding: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+}
+
+.close-btn:hover {
+    text-decoration: underline;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.blinking-cursor {
+    animation: blink 1s infinite;
+    color: #00ff41;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* --- Section 6: Context Styling --- */
+
+/* The Text Block - INCREASED SIZE */
+.system-manifesto {
+    font-family: 'Share Tech Mono', monospace; 
+    font-size: 1.2rem; /* Increased from 0.9rem for readability */
+    line-height: 1.6;  /* More spacing between lines */
+    color: #a0a0a0;    /* Light grey for better contrast against dark */
+    text-align: left; 
+    background: rgba(10, 10, 10, 0.8); /* Darker background for readability */
+    border-left: 4px solid #ff003c; /* Thicker accent line */
+    padding: 30px; /* More padding */
+    margin-top: 25px;
+    max-width: 650px;
+    margin-left: auto; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.sys-cmd {
+    color: #00ff41; 
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.sys-comment {
+    color: #555;
+    font-style: italic;
+}
+
+/* Text Highlights */
+.highlight-red { color: #ff003c; font-weight: bold; }
+.highlight-blue { color: #00d2ff; font-weight: bold; }
+.highlight-white { color: #fff; text-decoration: underline; text-decoration-color: #ff003c; }
+
+
+/* --- The Face Image Styling --- */
+.face-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px; /* Ensures image isn't too small */
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.cyber-face-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the face fills the box without stretching */
+    filter: grayscale(100%) contrast(1.2) brightness(0.9); /* Cyber noir look */
+    transition: filter 0.5s ease;
+}
+
+/* Hover Effect: Bring color back slightly */
+.face-wrapper:hover .cyber-face-img {
+    filter: grayscale(50%) contrast(1.1) brightness(1);
+}
+
+/* Scanline Overlay on top of the face */
+.face-scanline {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.3) 50%,
+        rgba(0,0,0,0.3)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 2;
+}

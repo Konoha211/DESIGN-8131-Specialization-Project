@@ -350,4 +350,204 @@ function disposeOntography() {
     initOntography();
     initLightbox();
   });
+
+  /* ========== NEW: Generic Slideshow Logic for Final Page ========== 
+   This function allows any container with specific classes to act as a slideshow
+   without hardcoding the ID inside the logic.
+*/
+
+function initGenericSlideshow(selector) {
+  const root = document.querySelector(selector);
+  if (!root) return;
+
+  const slides = Array.from(root.querySelectorAll('.ss-slide'));
+  const prevBtn = root.querySelector('.ss-prev');
+  const nextBtn = root.querySelector('.ss-next');
   
+  // Find currently active or default to 0
+  let currentIndex = Math.max(0, slides.findIndex(s => s.classList.contains('is-active')));
+
+  function updateSlide(newIndex) {
+    // Remove active class from all
+    slides.forEach(s => s.classList.remove('is-active'));
+    
+    // Wrap around logic
+    currentIndex = (newIndex + slides.length) % slides.length;
+    
+    // Add active class to new
+    slides[currentIndex].classList.add('is-active');
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => updateSlide(currentIndex - 1));
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => updateSlide(currentIndex + 1));
+  }
+
+  // Optional: Connect to existing Lightbox logic if slide is clicked
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  
+  slides.forEach(slide => {
+    slide.addEventListener('click', () => {
+      // Check if it's an image or text div
+      const img = slide.querySelector('img');
+      const src = img ? img.src : null; // If your placeholder is a DIV with text, this might be null
+      
+      // If you are using IMG tags inside slides:
+      if (src && lightbox && lightboxImg) {
+        lightboxImg.src = src;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
+    });
+  });
+}
+
+/* ========== NEW: Bouncing "DVD" Element Logic ========== */
+
+function initBouncingElement() {
+  const el = document.getElementById('bouncing-element');
+  const sidebar = document.querySelector('.right'); // The sidebar
+  
+  if (!el || !sidebar) return;
+
+  // Initial Position and Velocity
+  let x = 20;
+  let y = 100;
+  let dx = 1.5; // Speed X
+  let dy = 1.5; // Speed Y
+  let width = el.offsetWidth;
+  let height = el.offsetHeight;
+
+  function animate() {
+    // Get current dimensions
+    const winWidth = window.innerWidth;
+    const winHeight = window.innerHeight;
+    const sidebarWidth = sidebar.offsetWidth || 300; // Fallback if sidebar hidden
+    
+    // Calculate the Boundary
+    // The visual "Right" edge for the bouncer is the Window Width minus Sidebar Width
+    // We add a small buffer (-20px) so it doesn't touch the sidebar line exactly
+    const maxX = winWidth - sidebarWidth - width - 20;
+    const maxY = winHeight - height;
+
+    // Update position
+    x += dx;
+    y += dy;
+
+    // Collision Detection (Left/Right)
+    if (x <= 0) {
+      x = 0;
+      dx = -dx;
+      triggerGlitch(el); // Optional: Glitch when hitting wall
+    } else if (x >= maxX) {
+      x = maxX;
+      dx = -dx;
+      triggerGlitch(el);
+    }
+
+    // Collision Detection (Top/Bottom)
+    if (y <= 0) {
+      y = 0;
+      dy = -dy;
+      triggerGlitch(el);
+    } else if (y >= maxY) {
+      y = maxY;
+      dy = -dy;
+      triggerGlitch(el);
+    }
+
+    // Apply Logic
+    el.style.transform = `translate(${x}px, ${y}px)`;
+
+    requestAnimationFrame(animate);
+  }
+
+  // Helper: Briefly invert colors on hit
+  function triggerGlitch(element) {
+    const inner = element.querySelector('.bouncer-inner');
+    if(inner) {
+      inner.style.background = '#fff';
+      inner.style.filter = 'invert(1)';
+      setTimeout(() => {
+        inner.style.background = 'rgba(0,0,0,0.8)';
+        inner.style.filter = 'none';
+      }, 100);
+    }
+  }
+
+  // Start
+  animate();
+  
+  // Recalculate dimensions on resize
+  window.addEventListener('resize', () => {
+    width = el.offsetWidth;
+    height = el.offsetHeight;
+  });
+}
+  
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Configuration
+    const imagePath = 'Final_File/long_diagram.png';
+    const numberOfGlitches = 15; // How many scattered images you want
+    const container = document.getElementById('glitch-container');
+    const lightbox = document.getElementById('manifestation-lightbox');
+    const closeBtn = document.getElementById('close-lightbox');
+
+    // 1. Generate Scattered Images
+    for (let i = 0; i < numberOfGlitches; i++) {
+        const img = document.createElement('img');
+        img.src = imagePath;
+        img.className = 'glitch-thumb';
+        
+        // Randomize Size (between 100px and 250px width)
+        const randomWidth = Math.floor(Math.random() * 150) + 100;
+        img.style.width = randomWidth + 'px';
+        img.style.height = 'auto';
+
+        // Randomize Position (Keep within container bounds)
+        // We use percentages to make it responsive
+        const randomTop = Math.floor(Math.random() * 80); // 0% to 80%
+        const randomLeft = Math.floor(Math.random() * 80); // 0% to 80%
+        
+        img.style.top = randomTop + '%';
+        img.style.left = randomLeft + '%';
+        
+        // Randomize Z-Index so they stack differently
+        img.style.zIndex = Math.floor(Math.random() * 10);
+
+        // Click Event: Open Lightbox
+        img.addEventListener('click', () => {
+            lightbox.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        });
+
+        container.appendChild(img);
+    }
+
+    // 2. Lightbox Controls
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Close if clicking outside the image (on the dark background)
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Close on Escape Key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape" && lightbox.style.display === 'block') {
+            closeLightbox();
+        }
+    });
+});
